@@ -9982,3 +9982,28 @@ h6,
   padding: 0;
   list-style-type: none;
 }
+.form-row span{
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  color: red;
+}
+.control-group span{
+  position: absolute;
+  
+  right: 10px;
+  color: red;
+}
+#submit-error{
+  position: absolute;
+  color: red;
+  bottom: 20px;
+  
+}
+.form-row span i{
+  color: seagreen;
+}
+.control-group span i{
+  color: seagreen;
+}
+

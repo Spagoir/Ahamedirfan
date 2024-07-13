@@ -112,6 +112,71 @@
         loop: true,
         items: 1
     });
+
+
     
 })(jQuery);
 
+var nameError = document.getElementById('name-error');
+var emailError = document.getElementById('email-error');
+var numberError = document.getElementById('number-error');
+var messageError = document.getElementById('message-error');
+var submitError = document.getElementById('submit-error');
+
+function validatename(){
+    var name = document.getElementById('contact-name').value;
+    if(name.length ==0){
+        nameError.innerHTML= 'Name is required';
+        return false;
+    }else{
+    nameError.innerHTML = '<i>valid </i>';
+    return true;
+    }
+}
+function validatemail(){
+    var email = document.getElementById('contact-email').value;
+    if(email.length ==0){
+        emailError.innerHTML= 'email is required';
+        return false;
+    }else if(!email.match(/^[A-za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+        emailError.innerHTML = 'invalid email';
+        return false;
+    }else{
+        emailError.innerHTML = '<i>valid </i>';
+        return true;
+    }
+}
+function validatenumber(){
+    var number = document.getElementById('contact-number').value;
+    if(number.length ==0){
+        numberError.innerHTML= 'number is required';
+        return false;
+    } else if(number.length!==10){
+        numberError.innerHTML = '<i>number should be 10 digits </i>';
+        return false;
+    }else{
+        numberError.innerHTML = '<i>valid </i>';
+        return true;
+        }   
+}
+function validatemessage(){
+    var message = document.getElementById('contact-message').value;
+    var required = 8;
+    var left = required - message.length;
+    if(left > 0){
+        messageError.innerHTML = left+'more characters required';
+        return false;
+    }else{
+        messageError.innerHTML = '<i>valid </i>';
+        return true;
+        }   
+}
+function validateform(){
+    if(!validatename() || !validatenumber() ||!validatemail() || !validatemessage()){
+        submitError.style.display = 'block';
+        submitError.innerHTML = 'please fix error to submit';
+        setTimeout(function(){submitError.style.display = 'none';},3000);
+        return false;
+    }
+
+}

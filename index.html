@@ -25,6 +25,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -47,7 +48,6 @@
                
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -234,7 +234,7 @@
     <div class="container-fluid py-5" id="testimonialt">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About Me</h1>
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">AboutMe</h1>
                 <h1 class="position-absolute text-uppercase text-primary">About me</h1>
             </div>
             <div class="row justify-content-center">
@@ -242,7 +242,7 @@
                     <div class="owl-carousel testimonial-carousel">
                         <div class="text-center">
                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Hi,i'm Ahamed Irfan,A mern stack developer passionate about creating innovative web solutions.i specialize in both front-end(HTML,CSS,JAVASCRIPT)and back-end(MongoDB,Express.js,React,Node.js)development,designing responsive and user friendly websites</h4>
+                            <h4 class="font-weight-light mb-4">Hi,i'm Ahamed Irfan,A mern stack developer passionate about creating innovative web solutions.i specialize in both front-end(HTML,CSS,JAVASCRIPT)and back-end(MongoDB,Express.js,React,Node.js)development,designing responsive and user friendly Websites</h4>
                            
                         <div class="text-center">
                           
@@ -302,29 +302,30 @@
                         <form name="sentMessage" id="submit-form" novalidate="novalidate" action="">
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
-                                        required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control p-4" id="contact-name" placeholder="Your Name" onkeyup="validatename()">
+                                        <span id="name-error"></span>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                        required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="email" class="form-control p-4"  placeholder="Your Email" id="contact-email"  onkeyup="validatemail()" >
+                                        <span id="email-error"></span>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="number" class="form-control p-4" id="subject" placeholder="Enter your Number"
-                                    required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="number" class="form-control p-4" placeholder="Enter your Number" id="contact-number"  onkeyup="validatenumber()" >
+                                    <span id="number-error"></span>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
-                                    required="required"
+                                <textarea class="form-control py-3 px-4" rows="5"  placeholder="Message" id="contact-message"  onkeyup="validatemessage()"
                                     data-validation-required-message="Please enter your message"></textarea>
+                                    <span id="message-error"></span>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Submit</button>
+                                <button class="btn btn-outline-primary" type="submit" id="sendMessageButton" onclick="return validateform()">Submit</button>
+                                <span id="submit-error"></span>
                             </div>
                         </form>
                     </div>
